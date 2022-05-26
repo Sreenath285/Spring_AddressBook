@@ -1,0 +1,6 @@
+2022-05-26 17:08:44.849  INFO 33544 --- [restartedMain] c.s.addressbook.AddressBookApplication   : Starting AddressBookApplication using Java 17.0.1 on LAPTOP-23M52PMF with PID 33544 (C:\Users\sreen\Desktop\SpringBoot\AddressBook\target\classes started by SrEE in C:\Users\sreen\Desktop\SpringBoot\AddressBook)
+2022-05-26 17:08:44.849 DEBUG 33544 --- [restartedMain] c.s.addressbook.AddressBookApplication   : Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-05-26 17:08:44.849  INFO 33544 --- [restartedMain] c.s.addressbook.AddressBookApplication   : The following 1 profile is active: "prod"
+2022-05-26 17:08:46.162  WARN 33544 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-26 17:08:46.403  INFO 33544 --- [restartedMain] c.s.addressbook.AddressBookApplication   : Started AddressBookApplication in 1.788 seconds (JVM running for 2.267)
+2022-05-26 17:08:46.408  INFO 33544 --- [restartedMain] c.s.addressbook.AddressBookApplication   : Address Book App started in PROD environment
