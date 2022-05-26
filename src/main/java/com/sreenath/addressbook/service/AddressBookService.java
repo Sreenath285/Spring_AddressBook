@@ -1,6 +1,7 @@
 package com.sreenath.addressbook.service;
 
 import com.sreenath.addressbook.dto.AddressBookDTO;
+import com.sreenath.addressbook.exceptions.AddressBookCustomException;
 import com.sreenath.addressbook.model.AddressBookData;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,10 @@ public class AddressBookService implements IAddressBookService{
 
     @Override
     public AddressBookData getAddressBookDataById(int contactId) {
-        return addressBookDataList.get(contactId - 1);
+        return addressBookDataList.stream()
+                                  .filter(addressBookData -> addressBookData.getContactId() == contactId)
+                                  .findFirst()
+                                  .orElseThrow(() -> new AddressBookCustomException("Contact with id " + contactId + " not found"));
     }
 
     @Override

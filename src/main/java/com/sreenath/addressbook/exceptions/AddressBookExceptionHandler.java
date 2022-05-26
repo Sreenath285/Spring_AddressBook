@@ -13,13 +13,21 @@ import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class AddressBookExceptionHandler {
+    private static final String message = "Exception while processing REST request";
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         List<ObjectError> errorList = exception.getBindingResult().getAllErrors();
         List<String> errorMessage = errorList.stream()
                                              .map(objectError -> objectError.getDefaultMessage())
                                              .collect(Collectors.toList());
-        ResponseDTO responseDTO = new ResponseDTO("Exception while processing REST request", errorMessage);
+        ResponseDTO responseDTO = new ResponseDTO(message, errorMessage);
+        return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(AddressBookCustomException.class)
+    public ResponseEntity<ResponseDTO> handleAddressBookCustomException(AddressBookCustomException exception) {
+        ResponseDTO responseDTO = new ResponseDTO(message, exception.getMessage());
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.BAD_REQUEST);
     }
 }
