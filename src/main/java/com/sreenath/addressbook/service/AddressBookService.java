@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class AddressBookService implements IAddressBookService{
     private List<AddressBookData> addressBookDataList = new ArrayList<>();
+
     @Override
     public List<AddressBookData> getAddressBookData() {
         return addressBookDataList;
