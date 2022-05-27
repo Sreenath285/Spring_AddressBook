@@ -17,8 +17,6 @@ public class AddressBookService implements IAddressBookService{
     @Autowired
     private AddressBookRepository addressBookRepository;
 
-    private List<AddressBookData> addressBookDataList = new ArrayList<>();
-
     @Override
     public List<AddressBookData> getAddressBookData() {
         return addressBookRepository.findAll();
